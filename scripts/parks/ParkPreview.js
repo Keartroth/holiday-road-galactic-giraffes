@@ -17,3 +17,13 @@ const weatherContentTarget = document.querySelector("#weatherContainer")
 
 const buttonContentTarget = document.querySelector("#parkDialogButtonContainer")
 
+//Function to loop through park array and render park object
+
+const render = () => {
+    for (const )
+}
+
+export const parkPreview = () => {
+    render()
+}
+
