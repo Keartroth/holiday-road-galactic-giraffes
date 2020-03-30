@@ -6,7 +6,19 @@ let parks = []
 
 //function to export .slice() of park data (useParks)
 
-export const useParks = () => parks.slice()
+export const useParks = () => {
+    parks.sort(
+        (currentObject, nextObject) => {
+            const firstPark = currentObject.name
+            const secondPark = nextObject.name
+
+            if (firstPark < secondPark) { return -1; }
+            if (firstPark > secondPark) { return 1; }
+            return 0;
+        }
+    )
+    return parks.slice()
+}
 
 //function to get park data from API (getParks)
 
