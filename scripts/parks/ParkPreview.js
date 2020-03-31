@@ -1,12 +1,15 @@
 //Bring in list of all parks from park provider
 import { useParks, getParks } from "./ParkProvider.js";
 import { Park } from "./Park.js";
+import { ParkDialogButton } from "./ParkDialogButton.js";
+import { ParkDialog } from "./ParkDialog.js";
 
 //Declare variable to hold park array
 
 //Target DOM element to hold Park.js object
 
 const contentTarget = document.querySelector("#parkPreview");
+const dialogContainerTarget = document.querySelector("#dialogContainer");
 const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("parkChosenEvent", customEvent => {
@@ -20,19 +23,23 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
   });
 });
 
+// Function, dialogRender, which dynamically renders a dialog component to the DOM.
+const dialogRender = (ParkObject) => {
+  dialogContainerTarget.innerHTML = ParkDialog(ParkObject);
+}
+
 //Target DOM element to hold Weather.js object
 const weatherContentTarget = document.querySelector("#weatherContainer");
 
-//Target DOM element to hold ParkDialogButton.js object
-
-const buttonContentTarget = document.querySelector(
-  "#parkDialogButtonContainer"
-);
 
 //Function to loop through park array and render park object
 
 const render = park => {
   contentTarget.innerHTML = Park(park);
+  //Target DOM element to hold ParkDialogButton.js object  
+  const buttonContentTarget = document.querySelector("#parkDialogButtonContainer");
+  buttonContentTarget.innerHTML = ParkDialogButton(park);
+  
 };
 
 export const parkPreview = () => {
@@ -42,3 +49,17 @@ export const parkPreview = () => {
     render(defaultPark);
   });
 };
+
+//Listens for the custom event, parkDialogChosenEvent, and renders a dialog box to the DOM.
+eventHub.addEventListener("parkDialogChosenEvent", customEvent => {
+  const parkAbbrev = customEvent.detail.park;
+  getParks().then(() => {
+    const allTheParks = useParks();
+    const selectedParkObject = allTheParks.find(currentPark => {
+      return currentPark.parkCode === parkAbbrev;
+    });
+    dialogRender(selectedParkObject);
+    const parkDialog = document.querySelector("#parkDialog")
+    parkDialog.showModal()
+  });
+});

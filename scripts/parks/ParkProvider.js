@@ -33,7 +33,6 @@ export const getParks = () => {
         .then(response => response.json())
         .then(
             parsedParks => {
-                console.log(parsedParks)
                 parks = parsedParks
        }
    )
