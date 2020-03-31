@@ -10,11 +10,11 @@ const contentTarget = document.querySelector("#parkPreview");
 const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("parkChosenEvent", customEvent => {
-    const parkAbbrev = customEvent.detail.park
-    getParks().then(() => {
+  const parkAbbrev = customEvent.detail.park;
+  getParks().then(() => {
     const allTheParks = useParks();
     const selectedPark = allTheParks.find(currentPark => {
-      currentPark.parkCode === parkAbbrev;
+      return currentPark.parkCode === parkAbbrev;
     });
     render(selectedPark);
   });
