@@ -3,6 +3,7 @@ import { useParks, getParks } from "./ParkProvider.js";
 import { Park } from "./Park.js";
 import { ParkDialogButton } from "./ParkDialogButton.js";
 import { ParkDialog } from "./ParkDialog.js";
+import { getWeather, useWeather } from "../weather/WeatherProvider.js";
 
 //Declare variable to hold park array
 
@@ -20,6 +21,8 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
       return currentPark.parkCode === parkAbbrev;
     });
     render(selectedPark);
+    const parkPostal = parseInt(selectedPark.addresses[0].postalCode);
+    getWeather(parkPostal)
   });
 });
 
