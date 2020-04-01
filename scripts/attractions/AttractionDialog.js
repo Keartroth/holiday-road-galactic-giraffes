@@ -9,8 +9,8 @@ export const AttractionDialog = (attractionDialogObject) => {
             <div id="attractionLocation">${attractionDialogObject.city}, ${attractionDialogObject.state}</div>
             <p id="attractionDialogDescription">${attractionDialogObject.description}</p>
             <ul>
-                <li>Souvenirs: ${attractionDialogObject.ameneties.souvenirs ? "✔" : "🚫"}</li>
-                <li>Restrooms: ${attractionDialogObject.ameneties.restrooms ? "✅" : "😡"}</li>
+                <li>Souvenirs: ${attractionDialogObject.ameneties.souvenirs ? "✅" : "🚫"}</li>
+                <li>Restrooms: ${attractionDialogObject.ameneties.restrooms ? "✅" : "🚫"}</li>
             </ul>
         </div>
         <button type="button" id="closeAttractionDialogButton">Close</button>
