@@ -68,4 +68,20 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
   });
 });
 
+contentTarget.addEventListener("change", event => {
+    if (event.target.id === "attractionDropdown") {
+      let chosenAttraction = event.target.value;
+      if (chosenAttraction === "0") {
+        return false;
+      } else {
+        let attractionChosenEvent = new CustomEvent("attractionChosenEvent", {
+          detail: {
+            attraction: chosenAttraction
+          }
+        });
+        eventHub.dispatchEvent(attractionChosenEvent);
+      }
+    }
+  });
+
 
