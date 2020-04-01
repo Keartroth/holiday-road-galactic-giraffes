@@ -1,5 +1,5 @@
 import { getAttractions, useAttractions } from "./AttractionProvider.js"
-import { Attraction } from "./Attraction.js";
+import { Attraction, defaultAttraction } from "./Attraction.js";
 
 //Target DOM element to render attraction object
 
@@ -10,6 +10,10 @@ const contentTarget = document.querySelector("#attractionPreview")
 const render = attraction => {
     contentTarget.innerHTML = Attraction(attraction);
 
+}
+
+const defaultRender = () => {
+  contentTarget.innerHTML = defaultAttraction();
 }
 
 export const attractionPreview = () => {
