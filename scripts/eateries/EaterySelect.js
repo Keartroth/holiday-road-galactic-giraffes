@@ -4,19 +4,6 @@ import { getParks, useParks } from "../parks/ParkProvider.js";
 const contentTarget = document.querySelector("#eateryFilter");
 const eventHub = document.querySelector(".container");
 
-// Dispatches a custom event, parkChosenEvent, and passes on the chosenPark detail.
-// contentTarget.addEventListener("change", event => {
-//   if (event.target.id === "parkDropdown") {
-//     let chosenPark = event.target.value;
-//     let parkChosenEvent = new CustomEvent("parkChosenEvent", {
-//       detail: {
-//         park: chosenPark
-//       }
-//     });
-//     eventHub.dispatchEvent(parkChosenEvent);
-//   }
-// });
-
 const render = eateriesCollection => {
   contentTarget.innerHTML =
     // sets value of Please select crime to zero then maps over the array of crimes and returns an option which renders just a single crime name
@@ -40,25 +27,32 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
     const selectedParkObject = allTheParks.find(currentPark => {
       return currentPark.parkCode === parkAbbrev;
     });
-    const stateArray = selectedParkObject.states;
+    const stateString = selectedParkObject.states;
     getEateries().then(() => {
       const allTheEateries = useEateries();
-      const splitStateArray = stateArray.split(",");
+      const stateArray = stateString.split(",");
       let selectedEateryArray = [];
-      if (typeof splitStateArray === "string") {
-        selectedEateryArray = allTheEateries.filter(
-          currentEatery => currentEatery.state === stateArray
+      for (const state of stateArray) {
+        selectedEateryArray.push(
+          allTheEateries.find(currentEatery => {
+            return currentEatery.state === state;
+          })
         );
-      } else {
-        for (const state of splitStateArray) {
-          selectedEateryArray.push(
-            allTheEateries.filter(
-              currentEatery => currentEatery.state === state
-            )
-          );
-        }
       }
-      render(selectedEateryArray);
+      const orderedEateryArray = selectedEateryArray.sort(
+        (currentObject, nextObject) => {
+          const currentObjectName = currentObject.businessName;
+          const nextObjectName = nextObject.businessName;
+          if (currentObjectName < nextObjectName) {
+            return -1;
+          }
+          if (currentObjectName > nextObjectName) {
+            return 1;
+          }
+          return 0;
+        }
+      );
+      render(orderedEateryArray);
     });
   });
 });
