@@ -3,6 +3,8 @@ import { useParks, getParks } from "./ParkProvider.js";
 import { Park } from "./Park.js";
 import { ParkDialogButton } from "./ParkDialogButton.js";
 import { ParkDialog } from "./ParkDialog.js";
+import { getWeather, useWeather, forecastFilter, useFilteredWeather } from "../weather/WeatherProvider.js";
+import { Weather } from "../weather/Weather.js";
 
 //Declare variable to hold park array
 
@@ -20,6 +22,15 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
       return currentPark.parkCode === parkAbbrev;
     });
     render(selectedPark);
+    const parkPostal = parseInt(selectedPark.addresses[0].postalCode);
+    getWeather(parkPostal).then(() => {
+      const weatherArray = useWeather();
+      forecastFilter(weatherArray);
+      //Target DOM element to hold Weather.js object
+      const weatherContentTarget = document.querySelector("#weatherContainer");
+      const fiveDayForecast = useFilteredWeather();
+      weatherContentTarget.innerHTML = Weather(fiveDayForecast);
+    })
   });
 });
 
@@ -27,9 +38,6 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
 const dialogRender = (ParkObject) => {
   dialogContainerTarget.innerHTML = ParkDialog(ParkObject);
 }
-
-//Target DOM element to hold Weather.js object
-const weatherContentTarget = document.querySelector("#weatherContainer");
 
 
 //Function to loop through park array and render park object
