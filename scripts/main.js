@@ -10,6 +10,10 @@ import {
 } from "./attractions/AttractionProvider.js";
 import { attractionPreview } from "./attractions/AttractionPreview.js";
 import "./attractions/AttractionSelect.js";
+import "./SaveItineraryButton.js";
+import "./Itinerary/ItineraryProvider.js";
+import { getItineraries } from "./Itinerary/ItineraryProvider.js";
+import { ItineraryRender } from "./Itinerary/ItineraryList.js";
 
 getAttractions()
   .then(useAttractions)
@@ -20,3 +24,5 @@ getParks()
   .then(parkPreview);
 
 DefaultEateryPreview();
+
+getItineraries().then(ItineraryRender);
