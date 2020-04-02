@@ -29,6 +29,7 @@ export const getWeather = (postalCode) => {
 
 // Grab 5 days of data for 12PM
 export const forecastFilter = (forecast) => {
+    fiveDayForecast = []
     for (let i = 7; i < forecast.length; i = i+8) {
         let object = {};
         object['data'] = forecast[i]
