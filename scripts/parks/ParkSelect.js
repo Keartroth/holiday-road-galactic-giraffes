@@ -1,4 +1,4 @@
-import { useParks } from "./ParkProvider.js";
+import { useParks, getParks } from "./ParkProvider.js";
 
 const contentTarget = document.querySelector("#parkFilter");
 const eventHub = document.querySelector(".container");
@@ -23,10 +23,10 @@ const render = parksCollection => {
         <select class="dropdown" id="parkDropdown">
             <option value="0">Select Park...</option>  
         ${parksCollection
-          .map(singlePark => {
-            return `<option value="${singlePark.parkCode}" class="selectOption">${singlePark.name}</option>`;
-          })
-          .join("")}
+      .map(singlePark => {
+        return `<option value="${singlePark.parkCode}" class="selectOption">${singlePark.name}</option>`;
+      })
+      .join("")}
  
         </select>
     `;
@@ -38,6 +38,26 @@ export const ParkSelect = () => {
   render(parks);
 };
 
-
-
-
+/*
+* eventHub event listener which listens for the stateChosenEvent and filters the Park Select component
+* with all national parks that reside within the selected state.
+*/
+eventHub.addEventListener("stateChosenEvent", customEvent => {
+  const stateAbbrev = customEvent.detail.state;
+  let selectedParksArray = [];
+  getParks().then(() => {
+    const allTheParks = useParks();
+    selectedParksArray = allTheParks.filter(currentParkObject => {
+      const parkStateString = currentParkObject.states
+      return parkStateString.includes(stateAbbrev)
+    })
+    render(selectedParksArray);
+  });
+});
+/*
+* eventHub event listener which listens for the resetChosenEvent and calls the function, 
+* ParkSelect, to re-render the Park Select component with all national parks.
+*/
+eventHub.addEventListener("resetChosenEvent", customEvent => {
+  ParkSelect();
+});

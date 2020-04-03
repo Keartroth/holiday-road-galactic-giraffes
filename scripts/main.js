@@ -14,10 +14,15 @@ import "./SaveItineraryButton.js";
 import "./Itinerary/ItineraryProvider.js";
 import { getItineraries } from "./Itinerary/ItineraryProvider.js";
 import { ItineraryRender } from "./Itinerary/ItineraryList.js";
+import { getStates } from "./StateFilter/StateProvider.js";
+import { StateFilter } from "./StateFilter/StateSelect.js";
 
 getAttractions()
   .then(useAttractions)
   .then(attractionPreview);
+
+getStates()
+  .then(StateFilter);
 
 getParks()
   .then(ParkSelect)
