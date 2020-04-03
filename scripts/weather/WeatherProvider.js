@@ -22,7 +22,6 @@ export const getWeather = (postalCode) => {
         .then(
             parsedWeather => {
                 forecast = parsedWeather.list
-                console.log(forecast)
        }
    )
 }
