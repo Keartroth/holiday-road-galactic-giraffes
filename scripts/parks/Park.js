@@ -1,4 +1,4 @@
-//HTML representation of one park
+//HTML representation of one park, using properties from park array in db.json & exported to ParkPreview.js
 
 export const Park = (parkObject) => {
     return `

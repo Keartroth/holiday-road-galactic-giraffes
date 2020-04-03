@@ -1,3 +1,5 @@
+//Export function to represent one weather forecast object in HTML
+
 export const Weather = forecastArray => {
   return `
         <div id="weatherContainer" class="">

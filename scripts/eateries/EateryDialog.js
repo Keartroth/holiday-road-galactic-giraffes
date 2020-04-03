@@ -15,9 +15,12 @@ export const EateryDialog = eateryDialogObject => {
     `;
 };
 
+// Find a DOM node with specified id to populate the dialog.  
+
 const contentTarget = document.querySelector("#dialogContainer");
 
 // Listens for a click event on #closeEateryDialogButton, and closes a corresponding dialog box.
+
 contentTarget.addEventListener("click", event => {
   if (event.target.id === "closeEateryDialogButton") {
     const eateryDialogBox = document.querySelector("#eateryDialog");

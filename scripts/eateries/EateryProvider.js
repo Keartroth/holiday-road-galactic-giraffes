@@ -2,9 +2,12 @@
 
 let eateries = [];
 
-//function to export .slice() of eatery data (useEatery)
+//function (exported to EateryPreview.js) to export .slice() of eatery data (useEatery)
 
 export const useEateries = () => {
+
+//sort the eatery array alphabetically by business name
+
   eateries.sort((currentObject, nextObject) => {
     const currentEatery = currentObject.businessName;
     const nextEatery = nextObject.businessName;
@@ -23,11 +26,11 @@ export const useEateries = () => {
 //function to get eatery data from db.json (getEateries)
 
 export const getEateries = () => {
-  /*
-        Load database state into application state with a fetch().
-        Make sure the last `then()` sets the local `eateries`
-        variable to what is in the response from the API.
-    */
+/*
+  Load database state into application state with a fetch().
+  Make sure the last `then()` sets the local `eateries`
+  variable to what is in the response from the API.
+*/
 
   return fetch("http://holidayroad.nss.team/eateries")
     .then(response => response.json())

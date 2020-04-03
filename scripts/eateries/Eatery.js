@@ -1,3 +1,7 @@
+/*
+* HTML representation of one eatery, using properties from an eatery object in the NSS database,
+* http://holidayroad.nss.team/eateries, & exported to EateryPreview.js
+*/
 export const Eatery = eateryObject => {
   return `
         <h2>${eateryObject.businessName}</h2>
@@ -6,6 +10,8 @@ export const Eatery = eateryObject => {
         <div id="eateryDialogButtonContainer"></div>
     `;
 };
+
+//HTML representation of one default eatery, used as a placeholder on page load, & exported to EateryPreview.js
 export const defaultEatery = () => {
   return `
         <h2>Bob's Burgers</h2>

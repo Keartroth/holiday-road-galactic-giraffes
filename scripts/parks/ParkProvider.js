@@ -1,10 +1,11 @@
 import { Settings } from "../Settings.js"
 
-// need an empty array to hold park data
+// define an empty array to hold park data
 
 let parks = []
 
-//function to export .slice() of park data (useParks)
+//function to export a copy (.slice()) of park data (useParks) which is an array of park objects. 
+//alphabetize that list of parks by its "name" property.
 
 export const useParks = () => {
     parks.sort(
@@ -25,14 +26,13 @@ export const useParks = () => {
 export const getParks = () => {
     /*
         Load database state into application state with a fetch().
-        Make sure the last `then()` sets the local `Parks`
+        Make sure the last `then()` sets the local `parks`
         variable to what is in the response from the API.
     */
 
    return fetch('http://localhost:9000/parks')
-        .then(response => response.json())
-        .then(
-            parsedParks => {
+    .then( response => response.json())
+    .then( parsedParks => {
                 parks = parsedParks
        }
    )

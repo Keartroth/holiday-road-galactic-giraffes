@@ -41,7 +41,7 @@ eventHub.addEventListener("attractionChosenEvent", customEvent => {
   });
 });
 
-  //Listens for the custom event, parkDialogChosenEvent, and renders a dialog box to the DOM.
+  //Listens for the custom event, attractionDialogChosen, and renders a dialog box to the DOM.
 eventHub.addEventListener("attractionDialogChosenEvent", customEvent => {
   const attractionId = parseInt(customEvent.detail.attraction);
   getAttractions().then(() => {

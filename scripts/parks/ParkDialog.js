@@ -1,5 +1,4 @@
-//HTML representation of one park dialog
-
+//HTML representation of one park dialog, using properties from park array in db.json & exported to ParkPreview.js
 export const ParkDialog = (parkDialogObject) => {
     return `
     <dialog id="parkDialog">
@@ -10,10 +9,11 @@ export const ParkDialog = (parkDialogObject) => {
     </dialog>
     `
 }
+//References the DOM node that will be targeted which listens for the following event   
 
 const contentTarget = document.querySelector("#dialogContainer");
 
-// Dispatches a custom event, parkDialogChosenEvent, and passes on the chosenPark detail.
+// Listens for the click on the Close button in ParkDialog which closes ParkDialog when clicked 
 contentTarget.addEventListener("click", event => {
     if (event.target.id === "closeDialogButton") {
         const parkDialogBox = document.querySelector("#parkDialog")

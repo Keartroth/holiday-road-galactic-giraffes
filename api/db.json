@@ -5,6 +5,12 @@
       "eateryId": 29,
       "attractionId": 28,
       "id": 1
+    },
+    {
+      "parkCode": "olsp",
+      "eateryId": 30,
+      "attractionId": 42,
+      "id": 2
     }
   ],
   "states": [
