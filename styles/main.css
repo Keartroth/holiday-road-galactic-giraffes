@@ -1,6 +1,7 @@
 @import "./destinations.css";
 @import "./itineraries.css";
 @import "./park.css";
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
 
 #pageWrapper{
     display: flex;

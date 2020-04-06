@@ -29,7 +29,8 @@ export const ItineraryRender = () => {
       const allTheItineraries = useItineraries();
 
       let itineraryObject = {};
-
+      
+      contentTarget.innerHTML = `<h2>Saved Itineraries</h2>`;
       for (const itinerary of allTheItineraries) {
         const theFoundPark = allTheParks.find(currentParkObject => {
           return currentParkObject.parkCode === itinerary.parkCode;
@@ -52,6 +53,5 @@ export const ItineraryRender = () => {
 };
 
 eventHub.addEventListener("itineraryStateChanged", event => {
-  contentTarget.innerHTML = "";
   ItineraryRender();
 });

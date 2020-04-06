@@ -11,6 +11,18 @@
       "eateryId": 21,
       "attractionId": 20,
       "id": 2
+    },
+    {
+      "parkCode": "lecl",
+      "eateryId": 14,
+      "attractionId": 48,
+      "id": 3
+    },
+    {
+      "parkCode": "glac",
+      "eateryId": 16,
+      "attractionId": 12,
+      "id": 4
     }
   ],
   "states": [
