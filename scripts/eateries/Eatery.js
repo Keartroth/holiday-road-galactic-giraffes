@@ -8,7 +8,7 @@ export const Eatery = eateryObject => {
 };
 export const defaultEatery = () => {
   return `
-        <h2>Chose an eatery!</h2>
+        <h2>Choose an eatery!</h2>
         <p>Please select a park to see eateries.</p>
         <img id="eateryImage" class="eateryImageClass" src="https://images.unsplash.com/photo-1543373072-69f3d4788832?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"></img>
     `;
