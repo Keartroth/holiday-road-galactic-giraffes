@@ -1,6 +1,6 @@
 export const EateryDialogButton = eatery => {
   return `
-    <button type="button" id="eateryDialogButton--${eatery.id}">Click Here for Ameneties</button>
+    <button type="button" class="button" id="eateryDialogButton--${eatery.id}">Click for Ameneties</button>
     `;
 };
 

@@ -1,0 +1,13 @@
+#container__itinerary {
+    flex-basis: 20%;
+    background-color: whitesmoke;
+    box-shadow: 5px 10px #d8dada;
+    padding: 2%;
+    line-height: 25px;
+    padding: 20px 30px;
+    margin: 15px 40px;
+}
+
+#container__itinerary:hover {
+    background-color: rgb(230, 235, 244);
+}

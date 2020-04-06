@@ -1,9 +1,78 @@
-.parkImageClass {
-    max-height: auto;
-    max-width: 500px;
+@import "./destinations.css";
+@import "./itineraries.css";
+@import "./park.css";
+
+.container {
+    display: flex;
+    flex-flow: row; 
+    justify-content: space-evenly;
 }
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+#banner {
+    background-image: url("https://static1.squarespace.com/static/56e8fcc03c44d89db7df9b3e/57b8c55303596e6c59b3ae2e/5d52d11235f9a500012d92e1/1566965901794/weekend+guide+to+horseshoe+bend%2C+grand+canyon%2C+and+antelope+canyon.jpg?format=1500w");
+    background-size: cover;
+    background-position: bottom center;
+    height: 400px;
+    width: 100%;
   }
+
+  #banner .content h1 {
+    border: 3px solid white;
+    background-color: white ;
+    opacity: .5;
+    position: relative;
+    top: 50px;
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+padding:3%;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+text-transform: uppercase;
+font-size: 60px;
+font-weight: 600;
+text-align: center;
+letter-spacing: 8px;
+opacity: .75;
+background-color: whitesmoke;
+}
+
+h2{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: .28em;
+    font-weight: 600;
+    font-style: normal;   
+}
+
+h4 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+li {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+select {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+}

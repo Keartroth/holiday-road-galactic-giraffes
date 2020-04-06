@@ -1,0 +1,36 @@
+.eateryImageClass {
+    max-height: auto;
+    max-width: 300px;
+}
+
+#attractionImage {
+    max-height: auto;
+    max-width: 300px;
+}
+
+#eateryPreview {
+    display: flex;
+    flex-flow: column;
+    background-color: whitesmoke;
+    padding: 5%;
+    margin: 1em 1em 1em 1em;
+    width: 250px; 
+    box-shadow: 5px 10px #d8dada;
+}
+
+#eateryPreview:hover {
+    background-color: rgb(230, 235, 244);
+}
+
+#attractionPreview {
+    display: flex;
+    flex-flow: column;
+    background-color: whitesmoke;
+    padding: 5%;
+    margin: 1em 1em 1em 1em;
+    width: 250px; 
+    box-shadow: 5px 10px #d8dada;
+}
+#attractionPreview:hover {
+    background-color: rgb(230, 235, 244);
+}

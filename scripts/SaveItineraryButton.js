@@ -9,7 +9,7 @@ let attractionChosenState = false;
 const SaveItineraryButton = () => {
   if (eateryChosenState && attractionChosenState) {
     contentTarget.innerHTML = `
-        <button id="saveItineraryButton" type="button">Save Itinerary</button>
+        <button class= "button" id="saveItineraryButton" type="button">Save Itinerary</button>
         `;
   }
 };

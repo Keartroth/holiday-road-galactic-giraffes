@@ -1,6 +1,6 @@
 export const ParkDialogButton = (park) => {
     return `
-    <button type="button" id="parkDialogButton--${park.parkCode}">Click Here for Park Info</button>
+    <button type="button" class="button" id="parkDialogButton--${park.parkCode}">Park Info</button>
     `
 }
 
