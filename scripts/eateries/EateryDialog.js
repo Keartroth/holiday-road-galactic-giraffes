@@ -5,12 +5,12 @@ export const EateryDialog = eateryDialogObject => {
     <dialog id="eateryDialog">
         <h3>${eateryDialogObject.businessName}</h3>
         <ul>
-            <li>Wifi: ${eateryDialogObject.ameneties.wifi}</li>
-            <li>Pet-friendly: ${eateryDialogObject.ameneties.petFriendly}</li>
-            <li>Restroom: ${eateryDialogObject.ameneties.restrooms}</li>
-            <li>Wheelchair: ${eateryDialogObject.ameneties.wheelchairAccessible}</li>
+            <li>Wifi: ${eateryDialogObject.ameneties.wifi ? "✅" : "🚫"}</li>
+            <li>Pet-friendly: ${eateryDialogObject.ameneties.petFriendly ? "✅" : "🚫"}</li>
+            <li>Restroom: ${eateryDialogObject.ameneties.restrooms ? "✅" : "🚫"}</li>
+            <li>Wheelchair: ${eateryDialogObject.ameneties.wheelchairAccessible ? "✅" : "🚫"}</li>
         </ul>
-        <button type="button" id="closeEateryDialogButton">Close</button>
+        <button type="button" class="button" id="closeEateryDialogButton">Close</button>
     </dialog>
     `;
 };

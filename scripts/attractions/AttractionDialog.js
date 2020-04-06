@@ -13,7 +13,7 @@ export const AttractionDialog = (attractionDialogObject) => {
                 <li>Restrooms: ${attractionDialogObject.ameneties.restrooms ? "✅" : "🚫"}</li>
             </ul>
         </div>
-        <button type="button" id="closeAttractionDialogButton">Close</button>
+        <button type="button" class="button" id="closeAttractionDialogButton">Close</button>
     </dialog>
     `
 }

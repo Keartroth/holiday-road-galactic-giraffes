@@ -1,6 +1,6 @@
 export const AttractionDialogButton = (attraction) => {
     return `
-    <button type="button" id="attractionDialogButton--${attraction.id}">Click Here for Attraction Info</button>
+    <button type="button" class="button" id="attractionDialogButton--${attraction.id}">More Info</button>
     `
 }
 

@@ -6,7 +6,7 @@ export const ParkDialog = (parkDialogObject) => {
         <img id="parkDialogImage" class="parkImageClass" src="${parkDialogObject.images[0].url}"></img>
         <p id="parkDialogDescription">${parkDialogObject.description}</p>
         <a id="parkDialogLink" href="https://www.nps.gov/${parkDialogObject.parkCode}/planyourvisit/basicinfo.htm" target="_blank">More Info</a><br><br>
-        <button type="button" id="closeDialogButton">Close</button>
+        <button type="button" class="button" id="closeDialogButton">Close</button>
     </dialog>
     `
 }

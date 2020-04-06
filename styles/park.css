@@ -1,0 +1,47 @@
+#parkPreviewWrapper
+{
+    display: flex;
+    flex-flow: column;
+    background-color: whitesmoke;
+    padding: 5%;
+    margin: 1em 1em 1em 1em;
+    width: 500px; 
+    box-shadow: 5px 10px #d8dada;
+    
+}
+
+#parkPreviewWrapper:hover {
+    background-color: rgb(230, 235, 244);
+}
+
+.parkImageClass {
+    max-height: auto;
+    max-width: 500px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .button {
+    font-family: "PT Sans";
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .28em;
+    font-weight: 400;
+    font-style: normal;
+    background: #333;
+    color: #fff;
+    border-style: none;
+    padding-top: 1em;
+    padding-right: 1.44em;
+    padding-right: calc(1.44em - .28em);
+    padding-bottom: 1em;
+    padding-left: 1.44em;
+  }
+
+  button:hover {
+    background-color: rgb(180, 207, 228);
+    border-color: #004E89;
+  }

@@ -5,6 +5,12 @@
       "eateryId": 29,
       "attractionId": 28,
       "id": 1
+    },
+    {
+      "parkCode": "acad",
+      "eateryId": 21,
+      "attractionId": 20,
+      "id": 2
     }
   ],
   "states": [
