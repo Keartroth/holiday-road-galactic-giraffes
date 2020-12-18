@@ -5,31 +5,31 @@ export const Weather = forecastArray => {
             <th colspan="5">Five Day Weather Forecast</th>
             <tr id=>
                 ${forecastArray
-                  .map(singleForecastObject => {
-                    const date = singleForecastObject.data.dt_txt
-                      .split(" ")[0]
-                      .slice(6);
-                    return `<th class="weatherDay">${date}</th>`;
-                  })
-                  .join("")}
+      .map(singleForecastObject => {
+        const date = singleForecastObject.data.dt_txt
+          .split(" ")[0]
+          .slice(5);
+        return `<th class="weatherDay">${date}</th>`;
+      })
+      .join("")}
             </tr>
             <tr>
                 ${forecastArray
-                  .map(singleForecastObject => {
-                    return `
+      .map(singleForecastObject => {
+        return `
                                 <td>${singleForecastObject.data.main.temp}°F</td> 
                         `;
-                  })
-                  .join("")}
+      })
+      .join("")}
             </tr>
             <tr>
                 ${forecastArray
-                  .map(singleForecastObject => {
-                    return `
+      .map(singleForecastObject => {
+        return `
                         <td><img src="http://openweathermap.org/img/wn/${singleForecastObject.data.weather[0].icon}@2x.png"></td>
                         `;
-                  })
-                  .join("")}
+      })
+      .join("")}
             </tr>
             </table>
         </div>

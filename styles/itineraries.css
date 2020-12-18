@@ -6,6 +6,9 @@
     line-height: 25px;
     padding: 20px 30px;
     margin: 15px 40px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 690px;
 }
 
 #container__itinerary:hover {

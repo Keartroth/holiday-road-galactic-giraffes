@@ -16,21 +16,28 @@ const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("parkChosenEvent", customEvent => {
   const parkAbbrev = customEvent.detail.park;
+  let parkPostal = null;
+
   getParks().then(() => {
     const allTheParks = useParks();
     const selectedPark = allTheParks.find(currentPark => {
       return currentPark.parkCode === parkAbbrev;
     });
     render(selectedPark);
-    const parkPostal = parseInt(selectedPark.addresses[0].postalCode);
-    getWeather(parkPostal).then(() => {
-      const weatherArray = useWeather();
-      forecastFilter(weatherArray);
-      //Target DOM element to hold Weather.js object
-      const weatherContentTarget = document.querySelector("#weatherContainer");
-      const fiveDayForecast = useFilteredWeather();
-      weatherContentTarget.innerHTML = Weather(fiveDayForecast);
-    })
+    if (selectedPark.addresses.length > 0) {
+      parkPostal = parseInt(selectedPark.addresses[0].postalCode);
+    }
+
+    if (parkPostal !== null) {
+      getWeather(parkPostal).then(() => {
+        const weatherArray = useWeather();
+        forecastFilter(weatherArray);
+        //Target DOM element to hold Weather.js object
+        const weatherContentTarget = document.querySelector("#weatherContainer");
+        const fiveDayForecast = useFilteredWeather();
+        weatherContentTarget.innerHTML = Weather(fiveDayForecast);
+      })
+    }
   });
 });
 
@@ -47,7 +54,7 @@ const render = park => {
   //Target DOM element to hold ParkDialogButton.js object  
   const buttonContentTarget = document.querySelector("#parkDialogButtonContainer");
   buttonContentTarget.innerHTML = ParkDialogButton(park);
-  
+
 };
 
 export const parkPreview = () => {
@@ -70,4 +77,10 @@ eventHub.addEventListener("parkDialogChosenEvent", customEvent => {
     const parkDialog = document.querySelector("#parkDialog")
     parkDialog.showModal()
   });
+});
+
+// Listens for the custom event "newItinerySaved" and resets the eatery preview.
+
+eventHub.addEventListener("newItinerarySaved", evt => {
+  parkPreview();
 });

@@ -5,23 +5,25 @@ const contentTarget = document.querySelector("#eateryFilter");
 const eventHub = document.querySelector(".container");
 
 const render = (eateriesCollection, unfilteredCollection) => {
+  const removedDuplicateEateries = unfilteredCollection.filter(eatery => !eateriesCollection.includes(eatery));
+
   contentTarget.innerHTML =
     // sets value of Eatery Select to zero then maps over the array of eateries and returns an option which renders just a single eatery name
     `
         <select class="dropdown" id="eateryDropdown"> 
             <option value="0">---------Eateries Near Your Park---------</option>  
         ${eateriesCollection
-          .map(singleEatery => {
-            return `<option value="${singleEatery.id}" class="selectOption">${singleEatery.businessName}</option>`;
-          })
-          .join("")}
+      .map(singleEatery => {
+        return `<option value="${singleEatery.id}" class="selectOption">${singleEatery.businessName}</option>`;
+      })
+      .join("")}
           <option value="0"></option> 
-          <option value="0">---------All Eateries---------</option> 
-          ${unfilteredCollection
-            .map(singleEatery => {
-              return `<option value="${singleEatery.id}" class="selectOption">${singleEatery.businessName}</option>`;
-            })
-            .join("")}
+          <option value="0">---------Other Eateries---------</option> 
+          ${removedDuplicateEateries
+      .map(singleEatery => {
+        return `<option value="${singleEatery.id}" class="selectOption">${singleEatery.businessName}</option>`;
+      })
+      .join("")}
   
         </select>
     `;
@@ -80,4 +82,10 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
       render(orderedEateriesArray, allTheEateriesSortedArray);
     });
   });
+});
+
+// Listens for the custom event "newItinerySaved" and resets the eatery select.
+
+eventHub.addEventListener("newItinerarySaved", evt => {
+  contentTarget.innerHTML = "";
 });

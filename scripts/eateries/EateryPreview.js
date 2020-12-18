@@ -56,3 +56,9 @@ eventHub.addEventListener("eateryDialogChosenEvent", customEvent => {
     eateryDialog.showModal();
   });
 });
+
+// Listens for the custom event "newItinerySaved" and resets the eatery preview.
+
+eventHub.addEventListener("newItinerarySaved", evt => {
+  defaultRender();
+});

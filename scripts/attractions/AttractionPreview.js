@@ -12,9 +12,9 @@ const eventHub = document.querySelector(".container");
 //Function to render attraction object
 
 const render = attraction => {
-    contentTarget.innerHTML = Attraction(attraction);
-    const buttonContentTarget = document.querySelector("#attractionDialogButtonContainer");
-    buttonContentTarget.innerHTML = AttractionDialogButton(attraction);
+  contentTarget.innerHTML = Attraction(attraction);
+  const buttonContentTarget = document.querySelector("#attractionDialogButtonContainer");
+  buttonContentTarget.innerHTML = AttractionDialogButton(attraction);
 
 }
 
@@ -27,8 +27,8 @@ const dialogRender = (AttractionObject) => {
 }
 
 export const attractionPreview = () => {
-          defaultRender(defaultAttraction)
-    };
+  defaultRender(defaultAttraction)
+};
 
 eventHub.addEventListener("attractionChosenEvent", customEvent => {
   const attractionId = parseInt(customEvent.detail.attraction);
@@ -41,7 +41,7 @@ eventHub.addEventListener("attractionChosenEvent", customEvent => {
   });
 });
 
-  //Listens for the custom event, parkDialogChosenEvent, and renders a dialog box to the DOM.
+//Listens for the custom event, parkDialogChosenEvent, and renders a dialog box to the DOM.
 eventHub.addEventListener("attractionDialogChosenEvent", customEvent => {
   const attractionId = parseInt(customEvent.detail.attraction);
   getAttractions().then(() => {
@@ -55,3 +55,8 @@ eventHub.addEventListener("attractionDialogChosenEvent", customEvent => {
   });
 });
 
+// Listens for the custom event "newItinerySaved" and resets the attraction preview.
+
+eventHub.addEventListener("newItinerarySaved", evt => {
+  defaultRender();
+});

@@ -7,7 +7,9 @@
     margin: 1em 1em 1em 1em;
     width: 500px; 
     box-shadow: 5px 10px #d8dada;
-    
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 690px;
 }
 
 #parkPreviewWrapper:hover {
@@ -15,8 +17,8 @@
 }
 
 .parkImageClass {
-    max-height: auto;
-    max-width: 500px;
+    max-height: 500px;
+    max-width: 90%;
 }
 
 table, th, td {
@@ -25,7 +27,9 @@ table, th, td {
   }
 
   .button {
-    font-family: "PT Sans";
+    display: block;
+    margin: 2em auto;
+    font-family: 'PT Sans', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: .28em;
@@ -44,4 +48,8 @@ table, th, td {
   button:hover {
     background-color: rgb(180, 207, 228);
     border-color: #004E89;
+  }
+
+  #filterWrapper {
+    display: flex;
   }

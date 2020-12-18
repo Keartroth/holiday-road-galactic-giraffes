@@ -11,13 +11,19 @@ const SaveItineraryButton = () => {
     contentTarget.innerHTML = `
         <button class= "button" id="saveItineraryButton" type="button">Save Itinerary</button>
         `;
+  } else {
+    contentTarget.innerHTML = ""
   }
 };
 
 //Build itinerary object
 //Properties will be populated by custom event listener details from parkChosenEvent, eateryChosenEvent, attractionChosenEvent
 
-let itineraryObject = {};
+let itineraryObject = {
+  eateryId: null,
+  parkCode: "",
+  attractionId: null
+};
 
 // declare three listen events that listen for the custom events
 // parkChosenEvent, eateryChosenEvent, & attractionChosenEvent.
@@ -47,5 +53,10 @@ contentTarget.addEventListener("click", clickEvent => {
       detail: itineraryObject
     });
     eventHub.dispatchEvent(newItinerarySavedEvent);
+
+    eateryChosenState = false;
+    attractionChosenState = false;
+
+    SaveItineraryButton();
   }
 });

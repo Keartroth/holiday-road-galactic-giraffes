@@ -11,6 +11,42 @@
       "eateryId": 21,
       "attractionId": 20,
       "id": 2
+    },
+    {
+      "eateryId": 6,
+      "parkCode": "jomu",
+      "attractionId": 12,
+      "id": 3
+    },
+    {
+      "eateryId": 6,
+      "parkCode": "muwo",
+      "attractionId": 3,
+      "id": 4
+    },
+    {
+      "eateryId": 2,
+      "parkCode": "natt",
+      "attractionId": 43,
+      "id": 5
+    },
+    {
+      "eateryId": 2,
+      "parkCode": "tuai",
+      "attractionId": 18,
+      "id": 6
+    },
+    {
+      "eateryId": 47,
+      "parkCode": "appa",
+      "attractionId": 7,
+      "id": 7
+    },
+    {
+      "eateryId": 17,
+      "parkCode": "heho",
+      "attractionId": 16,
+      "id": 8
     }
   ],
   "states": [

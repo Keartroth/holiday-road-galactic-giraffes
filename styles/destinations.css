@@ -8,29 +8,31 @@
     max-width: 300px;
 }
 
-#eateryPreview {
+#eateryWrapper {
     display: flex;
     flex-flow: column;
     background-color: whitesmoke;
     padding: 5%;
     margin: 1em 1em 1em 1em;
-    width: 250px; 
     box-shadow: 5px 10px #d8dada;
 }
 
-#eateryPreview:hover {
+#eateryWrapper:hover {
     background-color: rgb(230, 235, 244);
 }
 
-#attractionPreview {
+#attractionWrapper {
     display: flex;
     flex-flow: column;
     background-color: whitesmoke;
     padding: 5%;
     margin: 1em 1em 1em 1em;
-    width: 250px; 
     box-shadow: 5px 10px #d8dada;
 }
-#attractionPreview:hover {
+#attractionWrapper:hover {
     background-color: rgb(230, 235, 244);
+}
+
+#destinationsWrapper {
+    max-height: 690px;
 }

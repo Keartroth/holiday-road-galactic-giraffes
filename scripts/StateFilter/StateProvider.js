@@ -5,7 +5,7 @@ let states = [];
 //function to export .slice() of state data (useStates)
 
 export const useStates = () => {
-    states.sort((currentObject, nextObject) => {
+  states.sort((currentObject, nextObject) => {
     const currentState = currentObject.stateName;
     const nextState = nextObject.stateName;
 
@@ -29,7 +29,7 @@ export const getStates = () => {
         variable to what is in the response from the API.
     */
 
-  return fetch("http://localhost:9000/states")
+  return fetch("http://localhost:8088/states")
     .then(response => response.json())
     .then(parsedStates => {
       states = parsedStates;

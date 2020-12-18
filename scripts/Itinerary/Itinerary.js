@@ -1,10 +1,10 @@
 export const Itinerary = itineraryObject => {
-  return `
+    return `
             <div id="itinerary--${itineraryObject.id}">
                 <h4>Trip to ${itineraryObject.park}</h4>
                 <ul>
-                    <li>Eatery:${itineraryObject.eatery}</li>
-                    <li>Attraction:${itineraryObject.attraction}</li>
+                    <li>Eatery: ${itineraryObject.eatery}</li>
+                    <li>Attraction: ${itineraryObject.attraction}</li>
                 </ul>
             </div>
     `;

@@ -61,3 +61,9 @@ eventHub.addEventListener("stateChosenEvent", customEvent => {
 eventHub.addEventListener("resetChosenEvent", customEvent => {
   ParkSelect();
 });
+
+// Listens for the custom event "newItinerySaved" and resets the park select.
+
+eventHub.addEventListener("newItinerarySaved", evt => {
+  ParkSelect();
+});

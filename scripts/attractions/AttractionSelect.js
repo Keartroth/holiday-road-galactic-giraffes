@@ -6,23 +6,25 @@ const contentTarget = document.querySelector("#attractionFilter");
 const eventHub = document.querySelector(".container");
 
 const render = (attractionsCollection, unfilteredCollection) => {
+  const removedDuplicateAttractions = unfilteredCollection.filter(attraction => !attractionsCollection.includes(attraction));
+
   contentTarget.innerHTML =
     // sets value of Please select crime to zero then maps over the array of crimes and returns an option which renders just a single crime name
     `
         <select class="dropdown" id="attractionDropdown"> 
             <option value="0">---------Attractions Near Your Park---------</option>  
         ${attractionsCollection
-          .map(singleAttraction => {
-            return `<option value="${singleAttraction.id}" class="selectOption">${singleAttraction.name}</option>`;
-          })
-          .join("")}
+      .map(singleAttraction => {
+        return `<option value="${singleAttraction.id}" class="selectOption">${singleAttraction.name}</option>`;
+      })
+      .join("")}
           <option value="0"></option> 
           <option value="0">---------All Attractions---------</option> 
-          ${unfilteredCollection
-            .map(singleAttraction => {
-              return `<option value="${singleAttraction.id}" class="selectOption">${singleAttraction.name}</option>`;
-            })
-            .join("")}
+          ${removedDuplicateAttractions
+      .map(singleAttraction => {
+        return `<option value="${singleAttraction.id}" class="selectOption">${singleAttraction.name}</option>`;
+      })
+      .join("")}
   
         </select>
     `;
@@ -69,19 +71,24 @@ eventHub.addEventListener("parkChosenEvent", customEvent => {
 });
 
 contentTarget.addEventListener("change", event => {
-    if (event.target.id === "attractionDropdown") {
-      let chosenAttraction = event.target.value;
-      if (chosenAttraction === "0") {
-        return false;
-      } else {
-        let attractionChosenEvent = new CustomEvent("attractionChosenEvent", {
-          detail: {
-            attraction: chosenAttraction
-          }
-        });
-        eventHub.dispatchEvent(attractionChosenEvent);
-      }
+  if (event.target.id === "attractionDropdown") {
+    let chosenAttraction = event.target.value;
+    if (chosenAttraction === "0") {
+      return false;
+    } else {
+      let attractionChosenEvent = new CustomEvent("attractionChosenEvent", {
+        detail: {
+          attraction: chosenAttraction
+        }
+      });
+      eventHub.dispatchEvent(attractionChosenEvent);
     }
-  });
+  }
+});
 
 
+// Listens for the custom event "newItinerySaved" and resets the attraction select.
+
+eventHub.addEventListener("newItinerarySaved", evt => {
+  contentTarget.innerHTML = "";
+});
